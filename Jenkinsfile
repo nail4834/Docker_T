@@ -41,7 +41,7 @@ pipeline {
                     // Run container to verify it starts (detach mode for testing)
                     sh """
                         docker run --name test_container -d ${IMAGE_NAME}:${IMAGE_TAG}
-                        sleep 5
+                        sleep 600      # 600 seconds = 10 minutes 
                         docker logs test_container
                         docker stop test_container
                         docker rm test_container
